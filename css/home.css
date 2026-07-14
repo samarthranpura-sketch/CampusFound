@@ -75,3 +75,195 @@ body {
     background-color: #1f8b39;
     color: white;
 }
+
+/* HERO SECTION */
+.hero {
+    background: #f4f8fb;
+    padding: 90px 20px;
+}
+
+.hero-content {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 35px;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-lost {
+    background: #e74c3c;
+}
+
+.btn-found {
+    background: #e74c3c;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+/* HOW IT WORKS */
+.how-it-works {
+    padding: 60px 20px;
+    text-align: center;
+    background: #ffffff;
+}
+
+.how-it-works h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #2c3e50;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.step-box {
+    width: 280px;
+    padding: 25px;
+    background: #f4f4f4;
+    border-radius: 10px;
+}
+
+.step-box h3 {
+    margin-bottom: 15px;
+    color: #27ae60;
+}
+
+.step-box p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --------MEDIA QUERY-------- */
+@media (max-width:768px){
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero p{
+        font-size: 18px;
+    }
+
+    .hero-buttons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .steps{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step-box{
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .choose-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* WHY CHOOSE SECTION  */ 
+.why-choose {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.why-choose h2 {
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+.choose-container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 30px;
+}
+
+.choose-card {
+    background: #f8f8f8;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.choose-card h3 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+.choose-card p{
+    color: #555;
+    line-height: 1.6;
+}
+
+/*----------- FOOTER SECTION -------- */
+footer {
+    background: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+footer h2 {
+    margin-bottom: 15px;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+.footer-links {
+    margin: 20px 0;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.footer-links a:hover{
+    text-decoration: underline;
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 14px;
+}
