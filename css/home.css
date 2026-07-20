@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -24,6 +24,13 @@ body {
     color: #2e7d32;
 }
 
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #2e7d32;
+}
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -41,7 +48,7 @@ body {
     color: #28a745;
 }
 
-.nav.buttons {
+.nav-buttons {
     display: flex;
     gap: 15px;
 }
@@ -167,39 +174,7 @@ body {
     line-height: 1.6;
 }
 
-/* --------MEDIA QUERY-------- */
-@media (max-width:768px){
-
-    .hero h1 {
-        font-size: 40px;
-    }
-
-    .hero p{
-        font-size: 18px;
-    }
-
-    .hero-buttons{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-    .steps{
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .step-box{
-        width: 90%;
-        max-width: 350px;
-    }
-
-    .choose-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* WHY CHOOSE SECTION  */ 
+/* WHY CHOOSE SECTION  */
 .why-choose {
     padding: 80px 10%;
     text-align: center;
@@ -211,16 +186,20 @@ body {
 }
 
 .choose-container {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
+    margin-top: 40px;
 }
 
 .choose-card {
     background: #f8f8f8;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex: 0 1 420px;
+    text-align: center;
 }
 
 .choose-card h3 {
@@ -228,7 +207,7 @@ body {
     margin-bottom: 15px;
 }
 
-.choose-card p{
+.choose-card p {
     color: #555;
     line-height: 1.6;
 }
@@ -259,11 +238,115 @@ footer p {
     margin: 0 15px;
 }
 
-.footer-links a:hover{
+.footer-links a:hover {
     text-decoration: underline;
 }
 
 .copyright {
     margin-top: 20px;
     font-size: 14px;
+}
+
+/* --------MEDIA QUERY-------- */
+@media (max-width:768px) {
+
+    .navbar {
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+        gap: 15px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-buttons {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 20px;
+        gap: 10px;
+    }
+
+    .nav-buttons.active {
+        display: flex;
+    }
+
+    .login-btn,
+    .register-btn {
+        text-align: center;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 17px;
+        line-height: 1.7;
+        padding: 0 10px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .hero-buttons .btn {
+        width: 220px;
+    }
+
+    .steps {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .step-box {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .choose-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .choose-card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-links a {
+        margin: 0;
+    }
 }
