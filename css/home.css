@@ -86,14 +86,16 @@ body {
 /* HERO SECTION */
 .hero {
     background: #f4f8fb;
-    padding: 90px 20px;
+    padding: 90px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
 }
 
 .hero-content {
-    width: 90%;
-    max-width: 900px;
-    margin: auto;
-    text-align: center;
+    flex: 1;
+    text-align: left;
 }
 
 .hero h1 {
@@ -111,9 +113,19 @@ body {
 
 .hero-buttons {
     display: flex;
-    justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 480px;
 }
 
 .btn {
