@@ -15,7 +15,7 @@
         <nav class="navbar">
 
             <div class="logo">
-                <a href="../index.html">CampusFound</a>
+                <a href="../index.php">CampusFound</a>
             </div>
 
             <div class="menu-toggle" id="menu-toggle">
@@ -23,16 +23,16 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="report-lost.html">Report Lost</a></li>
-                <li><a href="report-found.html">Report Found</a></li>
-                <li><a href="search.html" class="active">Search</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="../index.php">Home</a></li>
+                <li><a href="report-lost.php">Report Lost</a></li>
+                <li><a href="report-found.php">Report Found</a></li>
+                <li><a href="search.php" class="active">Search</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
             </ul>
 
             <div class="nav-buttons">
-                <a href="login.html" class="login-btn">Login</a>
-                <a href="register.html" class="register-btn">Register</a>
+                <a href="login.php" class="login-btn">Login</a>
+                <a href="register.php" class="register-btn">Register</a>
             </div>
 
         </nav>
@@ -106,11 +106,11 @@
         </p>
 
         <div class="footer-links">
-            <a href="../index.html">Home</a>
-            <a href="report-lost.html">Report Lost</a>
-            <a href="report-found.html">Report Found</a>
-            <a href="search.html">Search</a>
-            <a href="contact.html">Contact</a>
+            <a href="../index.php">Home</a>
+            <a href="report-lost.php">Report Lost</a>
+            <a href="report-found.php">Report Found</a>
+            <a href="search.php">Search</a>
+            <a href="contact.php">Contact</a>
         </div>
     </footer>
 

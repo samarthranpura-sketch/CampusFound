@@ -125,7 +125,9 @@ body {
 
 .hero-image img {
     width: 100%;
-    max-width: 480px;
+    max-width: 450px;
+    height: auto;
+    display: block;
 }
 
 .btn {
@@ -303,10 +305,14 @@ footer p {
 
     .hero {
         padding: 60px 20px;
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
     }
 
     .hero-content {
         max-width: 100%;
+        text-align: center;
     }
 
     .hero h1 {
@@ -328,6 +334,18 @@ footer p {
 
     .hero-buttons .btn {
         width: 220px;
+    }
+
+    .hero-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-image img {
+        width: 80%;
+        max-width: 280px;
+        height: auto;
     }
 
     .steps {
@@ -360,5 +378,27 @@ footer p {
 
     .footer-links a {
         margin: 0;
+    }
+
+    @media (max-width:320px) {
+
+        .hero h1 {
+            font-size: 30px;
+        }
+
+        .hero p {
+            font-size: 16px;
+        }
+
+        .hero-image img {
+            width: 70%;
+            max-width: 220px;
+        }
+
+        .hero-buttons .btn {
+            width: 100%;
+            max-width: 220px;
+        }
+
     }
 }

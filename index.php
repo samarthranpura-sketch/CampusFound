@@ -18,15 +18,15 @@
 
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="pages/report-lost.html">Report Lost</a></li>
-                <li><a href="pages/report-found.html">Report Found</a></li>
-                <li><a href="pages/search.html">Search</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="pages/report-lost.php">Report Lost</a></li>
+                <li><a href="pages/report-found.php">Report Found</a></li>
+                <li><a href="pages/search.php">Search</a></li>
+                <li><a href="pages/contact.php">Contact Us</a></li>
             </ul>
 
             <div class="nav-buttons">
-                <a href="pages/login.html" class="login-btn">Login</a>
-                <a href="pages/register.html" class="register-btn">Register</a>
+                <a href="pages/login.php" class="login-btn">Login</a>
+                <a href="pages/register.php" class="register-btn">Register</a>
             </div>
         </nav>
     </header>
@@ -41,12 +41,12 @@
             </p>
 
             <div class="hero-buttons">
-                <a href="pages/report-lost.html" class="btn btn-lost">Report Lost</a>
-                <a href="pages/report-found.html" class="btn btn-found">Report Found</a>
+                <a href="pages/report-lost.php" class="btn btn-lost">Report Lost</a>
+                <a href="pages/report-found.php" class="btn btn-found">Report Found</a>
             </div>
         </div>
         <div class="hero-image">
-            <img src="images/hero.svg.svg" alt="CampusFound Illustration">
+            <img src="images/hero.svg" alt="CampusFound Illustration">
         </div>
 
     </section>
@@ -95,11 +95,11 @@
         <p>Helping students recover lost belongings quickly and easily.</p>
 
         <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="pages/report-lost.html">Repost Lost</a>
-            <a href="pages/report-found.html">Repost Found</a>
-            <a href="pages/search.html">Search</a>
-            <a href="#">Contact</a>
+            <a href="index.php">Home</a>
+            <a href="pages/report-lost.php">Repost Lost</a>
+            <a href="pages/report-found.php">Repost Found</a>
+            <a href="pages/search.php">Search</a>
+            <a href="pages/contact.php">Contact</a>
         </div>
     </footer>
 

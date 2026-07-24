@@ -31,7 +31,7 @@
 
             <p>
                 Already have an account?
-                <a href="login.html">Login here</a>
+                <a href="login.php">Login here</a>
             </p>
         </form>
     </div>
