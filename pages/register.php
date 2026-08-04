@@ -17,15 +17,16 @@
 
         <p>Register to get started</p>
 
-        <form>
-            <label>Full Name:   </label><br>
-            <input type="text" placeholder="Enter your full name"><br>
+        <form action="../php/register-process.php" method="POST">
+
+            <label>Full Name:</label><br>
+            <input type="text" name="fullname" placeholder="Enter your full name" required><br>
 
             <label>Email:</label><br>
-            <input type="email" placeholder="Enter your email"  required><br>
+            <input type="email" name="email" placeholder="Enter your email" required><br>
 
             <label>Password:</label><br>
-            <input type="password" placeholder="Create password" required><br>
+            <input type="password" name="password" placeholder="Create password" required><br>
 
             <button type="submit">Register</button>
 
@@ -33,6 +34,7 @@
                 Already have an account?
                 <a href="login.php">Login here</a>
             </p>
+
         </form>
     </div>
 </body>
