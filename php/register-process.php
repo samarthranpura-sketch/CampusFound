@@ -2,6 +2,8 @@
 
 include "../database/database.php";
 
+/** @var mysqli $conn */
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $fullname = trim($_POST["fullname"]);
