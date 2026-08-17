@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION["user_id"])) {
+    header("Location: login.php");
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,63 +57,54 @@
             <h1>Report Found Item</h1>
             <p class="subtitle">Found an item on campus? Fill out the details below so the owner can claim it.</p>
 
-            <form action="#" method="post" enctype="multipart/form-data">
+            <form action="../php/report-found-process.php" method="POST" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <label>Item Name</label>
-                    <input type="text" placeholder="Enter Item Name" required>
+                    <input type="text" name="item_name" placeholder="Enter Item Name" required>
                 </div>
 
                 <div class="form-group">
                     <label>Category</label>
 
-                    <select required>
+                    <select name="category" required>
 
                         <option value="">Select Category</option>
-
-                        <option>Mobile Phone</option>
-
-                        <option>Laptop</option>
-
-                        <option>ID Card</option>
-
-                        <option>Wallet</option>
-
-                        <option>Bag</option>
-
-                        <option>Books</option>
-
-                        <option>Keys</option>
-
-                        <option>Watch</option>
-
-                        <option>Other</option>
+                        <option value="Mobile Phone">Mobile Phone</option>
+                        <option value="Laptop">Laptop</option>
+                        <option value="ID Card">ID Card</option>
+                        <option value="Wallet">Wallet</option>
+                        <option value="Bag">Bag</option>
+                        <option value="Books">Books</option>
+                        <option value="Keys">Keys</option>
+                        <option value="Watch">Watch</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label>Date Found</label>
-                    <input type="date" required>
+                    <input type="date" name="date_found" required>
                 </div>
 
                 <div class="form-group">
                     <label>Location Found</label>
-                    <input type="text" placeholder="Example: Library, Classroom A-201" required>
+                    <input type="text" name="location" placeholder="Example: Library, Classroom A-201" required>
                 </div>
 
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea rows="5" placeholder="Describe the item you found..." required></textarea>
+                    <textarea name="description" rows="5" placeholder="Describe the item you found..." required></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Upload Image</label>
-                    <input type="file" accept="image/*">
+                    <input type="file" name="item_image" accept="image/*">
                 </div>
 
                 <div class="form-group">
                     <label>Contact Number</label>
-                    <input type="tel" placeholder="Enter Contact Number" required>
+                    <input type="tel" name="contact_number" placeholder="Enter Contact Number" required>
                 </div>
                 <button type="submit" class="submit-btn">Submit Found Item</button>
             </form>

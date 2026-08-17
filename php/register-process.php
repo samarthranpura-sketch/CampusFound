@@ -24,11 +24,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_num_rows($result) > 0) {
 
         echo "Email already exists!";
-
     } else {
 
-        echo "Email is available.";
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
+        $insertSql = "INSERT INTO users (fullname, email, password)
+                  VALUES (?, ?, ?)";
+
+        $insertStmt = mysqli_prepare($conn, $insertSql);
+
+        mysqli_stmt_bind_param(
+            $insertStmt,
+            "sss",
+            $fullname,
+            $email,
+            $hashedPassword
+        );
+
+        mysqli_stmt_execute($insertStmt);
+
+        header("Location: ../pages/login.php");
+        exit();
     }
-
 }

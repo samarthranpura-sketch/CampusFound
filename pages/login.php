@@ -15,12 +15,12 @@
 
         <p>Login to Continue</p>
 
-        <form>
+        <form action="../php/login-process.php" method="post">
             <label>Email:</label>
-            <input type="email" placeholder="Enter your email" required><br>
+            <input type="email" name="email" placeholder="Enter your email" required><br>
            
             <label>Password:</label>
-            <input type="password" placeholder="Enter your password" required><br>
+            <input type="password" name="password" placeholder="Enter your password" required><br>
 
             <button type="submit">Login</button>
         </form>
