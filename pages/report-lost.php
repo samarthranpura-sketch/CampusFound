@@ -110,6 +110,12 @@ if (!isset($_SESSION["user_id"])) {
                     <label>Contact Number</label>
                     <input type="tel" name="contact_number" placeholder="Enter Contact Number" required>
                 </div>
+                <div class="form-group">
+                    <label>Item Image</label>
+                    <input type="file"
+                        name="item_image"
+                        accept="image/*">
+                </div>
                 <button type="submit" class="submit-btn">Submit Report</button>
             </form>
         </div>
