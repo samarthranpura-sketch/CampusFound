@@ -4,39 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register- CampusFound</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/register.css">
+
+    <title>Register | CampusFound</title>
+
+    <link rel="stylesheet" href="../css/register.css?v=3">
 </head>
 
 <body>
-    <div class="register-container">
-        <h1>CampusFound</h1>
+    <main class="register-page">
+        <div class="register-card">
 
-        <h2>Create Account</h2>
+            <div class="register-brand">
+                <div class="brand-icon">CF</div>
 
-        <p>Register to get started</p>
+                <h1>CampusFound</h1>
 
-        <form action="../php/register-process.php" method="POST">
+                <p>Lost something? Find it here.</p>
+            </div>
 
-            <label>Full Name:</label><br>
-            <input type="text" name="fullname" placeholder="Enter your full name" required><br>
+            <div class="register-heading">
+                <h2>Create Account</h2>
 
-            <label>Email:</label><br>
-            <input type="email" name="email" placeholder="Enter your email" required><br>
+                <p>Register to get started.</p>
+            </div>
 
-            <label>Password:</label><br>
-            <input type="password" name="password" placeholder="Create password" required><br>
+            <form action="../php/register-process.php" method="POST" class="register-form">
 
-            <button type="submit">Register</button>
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
 
-            <p>
-                Already have an account?
+                    <input
+                        type="text"
+                        id="fullname"
+                        name="fullname"
+                        placeholder="Enter your full name"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create your password"
+                        required>
+                </div>
+
+                <button type="submit" class="register-button">
+                    Create Account
+                </button>
+
+            </form>
+
+            <div class="login-link">
+                <span>Already have an account?</span>
                 <a href="login.php">Login here</a>
-            </p>
+            </div>
 
-        </form>
-    </div>
+        </div>
+
+    </main>
 </body>
-
 </html>

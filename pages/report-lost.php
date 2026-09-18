@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+$success = isset($_GET["success"]) && $_GET["success"] == "1";
 
 if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
@@ -16,10 +17,125 @@ if (!isset($_SESSION["user_id"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Lost | CampusFound</title>
 
-    <link rel="stylesheet" href="../css/report-lost.css">
+    <link rel="stylesheet" href="../css/report-lost.css?v=2">
+
+    <style>
+        .success-toast {
+            position: fixed;
+            top: 90px;
+            right: 25px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            width: 360px;
+            padding: 16px 18px;
+            background: #ffffff;
+            border-left: 5px solid #16a34a;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            animation: slideIn 0.35s ease;
+        }
+
+        .toast-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: #dcfce7;
+            color: #16a34a;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .success-toast strong {
+            display: block;
+            color: #172033;
+            font-size: 15px;
+        }
+
+        .success-toast p {
+            margin: 4px 0 0;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .home-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 13px;
+            border-radius: 8px;
+            background: #16a34a;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            transition: 0.2s ease;
+        }
+
+        .home-btn:hover {
+            background: #15803d;
+        }
+
+        .success-toast button {
+            margin-left: auto;
+            border: none;
+            background: transparent;
+            color: #64748b;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .success-toast {
+                left: 15px;
+                right: 15px;
+                top: 80px;
+                width: auto;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <?php if ($success): ?>
+        <div class="success-toast" id="successToast">
+
+            <div class="toast-icon">✓</div>
+
+            <div>
+                <strong>Report submitted successfully!</strong>
+
+                <p>Your lost item has been added to CampusFound.</p>
+
+                <p class="toast-help">
+                    You can now return to the homepage to see recent reports.
+                </p>
+
+                <a href="../index.php" class="home-btn">
+                    Back to Homepage →
+                </a>
+            </div>
+
+            <button type="button" onclick="closeToast()">×</button>
+
+        </div>
+    <?php endif; ?>
 
     <!-- Header -->
     <header>
@@ -42,8 +158,29 @@ if (!isset($_SESSION["user_id"])) {
             </ul>
 
             <div class="nav-buttons">
-                <a href="login.php" class="login-btn">Login</a>
-                <a href="register.php" class="register-btn">Register</a>
+
+                <?php if (isset($_SESSION["user_id"])): ?>
+
+                    <a href="my-account.php" class="login-btn">
+                        My Account
+                    </a>
+
+                    <a href="../php/logout.php" class="register-btn">
+                        Logout
+                    </a>
+
+                <?php else: ?>
+
+                    <a href="login.php" class="login-btn">
+                        Login
+                    </a>
+
+                    <a href="register.php" class="register-btn">
+                        Register
+                    </a>
+
+                <?php endif; ?>
+
             </div>
 
         </nav>
@@ -110,12 +247,6 @@ if (!isset($_SESSION["user_id"])) {
                     <label>Contact Number</label>
                     <input type="tel" name="contact_number" placeholder="Enter Contact Number" required>
                 </div>
-                <div class="form-group">
-                    <label>Item Image</label>
-                    <input type="file"
-                        name="item_image"
-                        accept="image/*">
-                </div>
                 <button type="submit" class="submit-btn">Submit Report</button>
             </form>
         </div>
@@ -144,6 +275,15 @@ if (!isset($_SESSION["user_id"])) {
 
     <script src="../js/main.js"></script>
 
+    <script>
+        function closeToast() {
+            const toast = document.getElementById("successToast");
+
+            if (toast) {
+                toast.remove();
+            }
+        }
+    </script>
 </body>
 
 </html>

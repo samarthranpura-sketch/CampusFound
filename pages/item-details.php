@@ -1,4 +1,5 @@
 <?php
+
 /** @var mysqli $conn */
 include "../database/database.php";
 
@@ -15,7 +16,6 @@ if ($status === "Lost") {
                    location, description, contact_number, image
             FROM lost_items
             WHERE id = ?";
-
 } else {
 
     $sql = "SELECT item_name, category, date_found AS item_date,
@@ -38,6 +38,7 @@ if (!$item) {
     die("Item not found.");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,47 +48,112 @@ if (!$item) {
 
     <title>Item Details | CampusFound</title>
 
-    <link rel="stylesheet" href="../css/search.css">
+    <link rel="stylesheet" href="../css/search.css?v=3">
 </head>
 
 <body>
-    <section class="results">
-        <div class="result-card">
-            <h2>
-                <?php echo htmlspecialchars($item["item_name"]); ?>
-            </h2>
-            <p>
-                <strong>Status:</strong>
-                <?php echo htmlspecialchars($status); ?>
-            </p>
-            <p>
-                <strong>Category:</strong>
-                <?php echo htmlspecialchars($item["category"]); ?>
-            </p>
-            <p>
-                <strong>Location:</strong>
-                <?php echo htmlspecialchars($item["location"]); ?>
-            </p>
-            <p>
-                <strong>Date:</strong>
-                <?php echo htmlspecialchars($item["item_date"]); ?>
-            </p>
-            <p>
-                <strong>Description:</strong>
-                <?php echo htmlspecialchars($item["description"]); ?>
-            </p>
-            <p>
-                <strong>Contact Number:</strong>
-                <?php echo htmlspecialchars($item["contact_number"]); ?>
-            </p>
-            <br>
-            <a href="search.php" class="submit-btn">
-                Back to Search
+
+    <main class="item-details-page">
+
+        <div class="item-details-container">
+
+            <a href="search.php" class="back-link">
+                ← Back to Search
             </a>
+
+            <div class="item-details-card">
+
+                <div class="item-details-header">
+
+                    <div>
+                        <span class="status-badge <?php echo strtolower($status); ?>">
+                            <?php echo htmlspecialchars($status); ?>
+                        </span>
+
+                        <h1>
+                            <?php echo htmlspecialchars($item["item_name"]); ?>
+                        </h1>
+
+                        <p class="item-subtitle">
+                            Item details and contact information
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="item-details-content">
+
+                    <div class="item-details-image">
+
+                        <?php if (!empty($item["image"])): ?>
+
+                            <img
+                                src="../<?php echo htmlspecialchars($item["image"]); ?>"
+                                alt="<?php echo htmlspecialchars($item["item_name"]); ?>">
+
+                        <?php else: ?>
+
+                            <div class="no-item-image">
+                                No Image Available
+                            </div>
+
+                        <?php endif; ?>
+
+                    </div>
+
+                    <div class="item-information">
+
+                        <div class="info-row">
+                            <span class="info-label">Category</span>
+                            <span class="info-value">
+                                <?php echo htmlspecialchars($item["category"]); ?>
+                            </span>
+                        </div>
+
+                        <div class="info-row">
+                            <span class="info-label">
+                                <?php echo $status === "Lost" ? "Location Lost" : "Location Found"; ?>
+                            </span>
+                            <span class="info-value">
+                                <?php echo htmlspecialchars($item["location"]); ?>
+                            </span>
+                        </div>
+
+                        <div class="info-row">
+                            <span class="info-label">
+                                <?php echo $status === "Lost" ? "Date Lost" : "Date Found"; ?>
+                            </span>
+                            <span class="info-value">
+                                <?php echo htmlspecialchars($item["item_date"]); ?>
+                            </span>
+                        </div>
+
+                        <div class="description-box">
+                            <span class="info-label">Description</span>
+
+                            <p>
+                                <?php echo htmlspecialchars($item["description"]); ?>
+                            </p>
+                        </div>
+
+                        <div class="contact-box">
+                            <div>
+                                <span class="contact-label">
+                                    Contact Number
+                                </span>
+
+                                <strong>
+                                    <?php echo htmlspecialchars($item["contact_number"]); ?>
+                                </strong>
+                            </div>
+
+                            <span class="contact-icon"> ☎</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-    </section>
-
+    </main>
 </body>
-
 </html>

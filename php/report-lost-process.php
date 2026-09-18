@@ -35,16 +35,17 @@ $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param(
     $stmt,
     "isssssss",
-    $user_id,
-    $item_name,
+    $userId,
+    $itemName,
     $category,
-    $date_lost,
+    $dateLost,
     $location,
     $description,
-    $contact_number,
+    $contactNumber,
     $imagePath
 );
 
 mysqli_stmt_execute($stmt);
 
-echo "Lost item reported successfully!";
+header("Location: ../pages/report-lost.php?success=1");
+exit();

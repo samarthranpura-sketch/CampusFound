@@ -1,236 +1,690 @@
+/*CAMPUSFOUND */
+
+:root {
+    --green: #20a66a;
+    --green-dark: #168653;
+    --green-light: #eaf8f1;
+
+    --navy: #123b35;
+    --navy-dark: #0c2925;
+
+    --text: #17322e;
+    --text-light: #667875;
+
+    --white: #ffffff;
+    --background: #f7faf9;
+    --border: #e4ece9;
+
+    --shadow: 0 18px 45px rgba(18, 59, 53, 0.09);
+}
+
+
+/* RESET*/
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f7f8;
+html {
+    scroll-behavior: smooth;
 }
 
-/* NAVBAR */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+
+/*HEADER / NAVBAR*/
+
+header {
+    width: 100%;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
 .navbar {
+    max-width: 1180px;
+    min-height: 76px;
+    margin: 0 auto;
+    padding: 0 28px;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
+    justify-content: space-between;
+    gap: 25px;
 }
+
+
+/* Logo */
 
 .logo a {
-    text-decoration: none;
-    font-size: 28px;
-    font-weight: bold;
-    color: #2e7d32;
+    color: var(--navy);
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
 }
 
-.menu-toggle {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: #2e7d32;
-}
+
+/* Navigation */
 
 .nav-links {
-    display: flex;
     list-style: none;
-    gap: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
 }
 
-.nav-links a{
-    text-decoration:none;
-    color:#333;
-    font-weight:600;
-    transition:0.3s;
+.nav-links a {
+    display: block;
+    padding: 9px 13px;
+
+    color: #526763;
+    font-size: 14px;
+    font-weight: 600;
+
+    border-radius: 8px;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
 }
 
-.nav-links a:hover{
-    color:#1f8b39;
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--green-dark);
+    background: var(--green-light);
 }
 
-.nav-links a.active{
-    color:#2e7d32;
-    font-weight:bold;
-    border-bottom:2px solid #2e7d32;
-    padding-bottom:4px;
-}
+
+/* Login / Register */
 
 .nav-buttons {
     display: flex;
-    gap: 15px;
+    align-items: center;
+    gap: 10px;
 }
 
 .login-btn,
 .register-btn {
-    text-decoration: none;
-    padding: 10px 18px;
-    border: 2px solid #2e7d32;
-    border-radius: 8px;
-    color: #2e7d32;
-    font-weight: bold;
-    transition: .3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+    padding: 0 17px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
 }
 
-.login-btn:hover,
+.login-btn {
+    color: var(--green-dark);
+    background: white;
+    border: 1px solid #8fd7b6;
+}
+
+.login-btn:hover {
+    background: var(--green-light);
+    transform: translateY(-1px);
+}
+
+.register-btn {
+    color: var(--green-dark);
+    background: white;
+    border: 1px solid #8fd7b6;
+}
+
 .register-btn:hover {
-    background: #2e7d32;
-    color: white;
+    background: var(--green-light);
+    color: var(--green-dark);
+    border-color: #8fd7b6;
+    transform: translateY(-1px);
 }
 
-/* FORM */
+
+/* Mobile menu button */
+
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    color: var(--navy);
+    cursor: pointer;
+}
+
+
+/* =========================================
+   REPORT SECTION
+   ========================================= */
 
 .report-section {
-    padding: 70px 20px;
+    min-height: calc(100vh - 76px);
+
+    padding: 70px 20px 85px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(32, 166, 106, 0.08),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #f8fcfa 0%,
+            #f7faf9 100%
+        );
 }
+
+
+/* =========================================
+   FORM CARD
+   ========================================= */
 
 .report-card {
-    max-width: 700px;
-    margin: auto;
-    background: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, .1);
+    width: 100%;
+    max-width: 820px;
+
+    padding: 42px 44px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    box-shadow: var(--shadow);
 }
 
+
+/* Heading */
+
 .report-card h1 {
-    text-align: center;
-    color: #2e7d32;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
+
+    color: var(--navy);
+
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.7px;
 }
 
 .subtitle {
-    text-align: center;
-    color: #555;
-    margin-bottom: 35px;
+    max-width: 650px;
+
+    margin-bottom: 34px;
+
+    color: var(--text-light);
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   FORM
+   ========================================= */
+
+.report-card form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 20px;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
 }
+
+
+/* Labels */
 
 .form-group label {
     margin-bottom: 8px;
-    font-weight: bold;
+
+    color: var(--text);
+
+    font-size: 14px;
+    font-weight: 700;
 }
+
+
+/* Inputs */
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    padding: 14px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    width: 100%;
+
+    padding: 13px 14px;
+
+    color: var(--text);
+
+    background: #fbfdfc;
+
+    border: 1px solid #d8e5e1;
+    border-radius: 10px;
+
     outline: none;
-    font-size: 15px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
+
+.form-group input,
+.form-group select {
+    height: 48px;
+}
+
+.form-group textarea {
+    min-height: 130px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9aa9a5;
+}
+
+
+/* Focus */
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: #2e7d32;
+    background: var(--white);
+    border-color: var(--green);
+
+    box-shadow:
+        0 0 0 3px rgba(32, 166, 106, 0.10);
 }
 
-.submit-btn {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    background: #2e7d32;
-    color: white;
-    font-size: 17px;
+
+/* =========================================
+   FULL WIDTH FORM FIELDS
+   ========================================= */
+
+/* Description */
+.form-group:nth-child(5) {
+    grid-column: 1 / -1;
+}
+
+/* Image upload */
+.form-group:nth-child(6) {
+    grid-column: 1 / -1;
+}
+
+/* Contact number */
+.form-group:nth-child(7) {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================
+   IMAGE UPLOAD
+   ========================================= */
+
+.form-group input[type="file"] {
+    height: auto;
+    padding: 11px;
+
     cursor: pointer;
-    transition: .3s;
+
+    background: var(--green-light);
+    border: 1px dashed #8fd7b6;
+}
+
+.form-group input[type="file"]:hover {
+    border-color: var(--green);
+    background: #e4f6ed;
+}
+
+.form-group input[type="file"]::file-selector-button {
+    margin-right: 12px;
+
+    padding: 8px 13px;
+
+    color: white;
+    background: var(--green);
+
+    border: none;
+    border-radius: 7px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.form-group input[type="file"]::file-selector-button:hover {
+    background: var(--green-dark);
+}
+
+
+/* =========================================
+   SUBMIT BUTTON
+   ========================================= */
+
+.submit-btn {
+    grid-column: 1 / -1;
+
+    width: 100%;
+    min-height: 52px;
+
+    margin-top: 4px;
+
+    color: white;
+    background: var(--green);
+
+    border: 1px solid var(--green);
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(32, 166, 106, 0.20);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .submit-btn:hover {
-    background: #256428;
+    background: var(--green-dark);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 12px 25px rgba(32, 166, 106, 0.25);
 }
 
-/* FOOTER */
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
 
 footer {
-    margin-top: 60px;
-    background: #2e7d32;
-    color: white;
+    padding: 42px 20px 35px;
+
     text-align: center;
-    padding: 40px 20px;
+
+    background: var(--navy-dark);
+    color: white;
 }
 
 footer h2 {
-    margin-bottom: 15px;
+    margin-bottom: 8px;
+
+    color: white;
+
+    font-size: 23px;
+    font-weight: 800;
 }
 
 footer p {
-    margin-bottom: 20px;
+    max-width: 500px;
+
+    margin: 0 auto 20px;
+
+    color: #afc3be;
+
+    font-size: 14px;
 }
 
 .footer-links {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
     flex-wrap: wrap;
+
+    gap: 8px 22px;
 }
 
 .footer-links a {
-    color: white;
-    text-decoration: none;
+    color: #c5d5d1;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: color 0.2s ease;
 }
 
-/* RESPONSIVE */
+.footer-links a:hover {
+    color: #6fe0a7;
+}
 
-@media(max-width:768px) {
+
+/* =========================================
+   RESPONSIVE - TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
 
     .navbar {
-        flex-wrap: wrap;
-        padding: 20px;
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        gap: 2px;
+    }
+
+    .nav-links a {
+        padding: 8px 9px;
+        font-size: 13px;
+    }
+
+    .report-card {
+        max-width: 760px;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE - MOBILE
+   ========================================= */
+
+@media (max-width: 760px) {
+
+    header {
+        position: sticky;
+    }
+
+    .navbar {
+        min-height: 70px;
+        position: relative;
     }
 
     .menu-toggle {
         display: block;
+        order: 3;
     }
 
     .nav-links {
         display: none;
+
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+
+        padding: 14px 20px 18px;
+
         flex-direction: column;
-        width: 100%;
-        text-align: center;
-        margin-top: 20px;
+        align-items: stretch;
+
+        background: white;
+
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+
+        box-shadow: 0 15px 30px rgba(18, 59, 53, 0.08);
     }
 
     .nav-links.active {
         display: flex;
     }
 
-    .nav-buttons {
-        display: none;
-        flex-direction: column;
+    .nav-links li {
         width: 100%;
-        margin-top: 15px;
     }
 
-    .nav-buttons.active {
-        display: flex;
+    .nav-links a {
+        width: 100%;
+        padding: 11px 12px;
+    }
+
+    .nav-buttons {
+        margin-left: auto;
+    }
+
+    .login-btn,
+    .register-btn {
+        min-height: 38px;
+        padding: 0 12px;
+        font-size: 13px;
+    }
+
+    .report-section {
+        padding: 45px 15px 60px;
     }
 
     .report-card {
-        padding: 25px;
+        padding: 30px 22px;
+        border-radius: 18px;
     }
 
     .report-card h1 {
-        font-size: 28px;
+        font-size: 27px;
     }
 
     .subtitle {
-        font-size: 15px;
+        margin-bottom: 27px;
+        font-size: 14px;
+    }
+
+    .report-card form {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .form-group:nth-child(5),
+    .form-group:nth-child(6),
+    .form-group:nth-child(7),
+    .submit-btn {
+        grid-column: auto;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 500px) {
+
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .logo a {
+        font-size: 22px;
+    }
+
+    .nav-buttons {
+        gap: 6px;
+    }
+
+    .login-btn,
+    .register-btn {
+        padding: 0 9px;
+        font-size: 12px;
+    }
+
+    .report-section {
+        padding: 32px 12px 45px;
+    }
+
+    .report-card {
+        padding: 25px 17px;
+        border-radius: 16px;
+    }
+
+    .report-card h1 {
+        font-size: 24px;
+    }
+
+    .form-group input,
+    .form-group select {
+        height: 46px;
+    }
+
+    footer {
+        padding: 35px 15px 28px;
     }
 
     .footer-links {
-        flex-direction: column;
-        gap: 15px;
+        gap: 10px 16px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL SCREENS
+   ========================================= */
+
+@media (max-width: 380px) {
+
+    .login-btn,
+    .register-btn {
+        padding: 0 7px;
+        font-size: 11px;
     }
 
+    .logo a {
+        font-size: 20px;
+    }
+
+    .report-card {
+        padding: 22px 14px;
+    }
 }

@@ -28,20 +28,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $insertSql = "INSERT INTO users (fullname, email, password)
-                  VALUES (?, ?, ?)";
+        $role = "user";
+
+        $insertSql = "INSERT INTO users (fullname, email, password, role)
+              VALUES (?, ?, ?, ?)";
 
         $insertStmt = mysqli_prepare($conn, $insertSql);
 
         mysqli_stmt_bind_param(
             $insertStmt,
-            "sss",
+            "ssss",
             $fullname,
             $email,
-            $hashedPassword
+            $hashedPassword,
+            $role
         );
 
-        mysqli_stmt_execute($insertStmt);
+        if (!mysqli_stmt_execute($insertStmt)) {
+            die("Registration failed: " . mysqli_stmt_error($insertStmt));
+        }
 
         header("Location: ../pages/login.php");
         exit();

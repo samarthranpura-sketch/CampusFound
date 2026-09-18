@@ -33,10 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
 
-            echo "Incorrect password!";
+            header("Location: ../pages/login.php?error=wrongpassword");
+            exit();
         }
     } else {
 
-        echo "User not found!";
+        header("Location: ../pages/login.php?error=notfound");
+        exit();
     }
 }

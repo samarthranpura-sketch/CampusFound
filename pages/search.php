@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 /** @var mysqli $conn */
 include "../database/database.php";
 
@@ -56,7 +58,7 @@ $result = mysqli_stmt_get_result($stmt);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Items | CampusFound</title>
-    <link rel="stylesheet" href="../css/search.css">
+    <link rel="stylesheet" href="../css/search.css?v=5">
 </head>
 
 <body>
@@ -82,8 +84,29 @@ $result = mysqli_stmt_get_result($stmt);
             </ul>
 
             <div class="nav-buttons">
-                <a href="login.php" class="login-btn">Login</a>
-                <a href="register.php" class="register-btn">Register</a>
+
+                <?php if (isset($_SESSION["user_id"])): ?>
+
+                    <a href="my-account.php" class="login-btn">
+                        My Account
+                    </a>
+
+                    <a href="../php/logout.php" class="register-btn">
+                        Logout
+                    </a>
+
+                <?php else: ?>
+
+                    <a href="login.php" class="login-btn">
+                        Login
+                    </a>
+
+                    <a href="register.php" class="register-btn">
+                        Register
+                    </a>
+
+                <?php endif; ?>
+
             </div>
 
         </nav>
@@ -128,29 +151,47 @@ $result = mysqli_stmt_get_result($stmt);
         <?php if (mysqli_num_rows($result) > 0): ?>
             <?php while ($row = mysqli_fetch_assoc($result)): ?>
                 <div class="result-card">
-                    <h3>
-                        <?php echo htmlspecialchars($row["item_name"]); ?>
-                    </h3>
-                    <p>
-                        <strong>Status:</strong>
-                        <?php echo htmlspecialchars($row["status"]); ?>
-                    </p>
-                    <p>
-                        <strong>Category:</strong>
-                        <?php echo htmlspecialchars($row["category"]); ?>
-                    </p>
-                    <p>
-                        <strong>Location:</strong>
-                        <?php echo htmlspecialchars($row["location"]); ?>
-                    </p>
-                    <p>
-                        <strong>Date:</strong>
-                        <?php echo htmlspecialchars($row["item_date"]); ?>
-                    </p>
-                    <a href="item-details.php?id=<?php echo $row["id"]; ?>&status=<?php echo $row["status"]; ?>"
-                        class="submit-btn">
-                        View Details
-                    </a>
+
+                    <div class="result-image">
+                        <?php if (!empty($row["image"])): ?>
+                            <img src="../<?php echo htmlspecialchars($row["image"]); ?>"
+                                alt="<?php echo htmlspecialchars($row["item_name"]); ?>">
+                        <?php else: ?>
+                            <div class="no-image">No Image</div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="result-content">
+
+                        <div class="result-top">
+                            <h3>
+                                <?php echo htmlspecialchars($row["item_name"]); ?>
+                            </h3>
+
+                            <span class="status-badge <?php echo strtolower($row["status"]); ?>">
+                                <?php echo htmlspecialchars($row["status"]); ?>
+                            </span>
+                        </div>
+
+                        <p>
+                            <strong>Category:</strong>
+                            <?php echo htmlspecialchars($row["category"]); ?>
+                        </p>
+
+                        <p>
+                            <strong>Location:</strong>
+                            <?php echo htmlspecialchars($row["location"]); ?>
+                        </p>
+
+                        <p>
+                            <strong>Date:</strong>
+                            <?php echo htmlspecialchars($row["item_date"]); ?>
+                        </p>
+
+                        <a href="item-details.php?id=<?php echo $row["id"]; ?>&status=<?php echo $row["status"]; ?>"
+                            class="submit-btn">
+                            View Details
+                        </a>
+                    </div>
                 </div>
             <?php endwhile; ?>
         <?php else: ?>
